@@ -168,7 +168,7 @@ end)
 
 
 ScanPoint.register('random', {
-  pos           = vector4(-397.26208496094, -107.16575622559, 38.683372497559, 50.380081176758), 
+  pos           = vector3(-361.38012695312, -153.59371948242, 38.704216003418), 
   find_radius   = 2.0,
   destroy_on_find = true,
   onFind = function()

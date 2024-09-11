@@ -2,7 +2,7 @@ fx_version 'cerulean'
 lua54 'yes' 
 games { 'rdr3', 'gta5' } 
 author 'DirkScripts' 
-description 'Clean | Digiscanner 
+description 'Clean | Digiscanner'
 version '1.0.0' 
 
 client_script {
