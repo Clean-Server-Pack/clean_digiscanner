@@ -39,7 +39,6 @@ exports('getClosestPoint', ScanPoint.getClosest)
 ScanPoint.destroy = function(id)
   local scan_point = ScanPoint.get(id)
   if not scan_point then return false end
-  scan_point:__destroy()
   ScanPoints[id] = nil
 end
 

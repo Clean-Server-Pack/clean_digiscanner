@@ -41,7 +41,7 @@ function DigiScanner:updateBars(nearest_id, nearest_dist)
   end
 
 
-  if nearest_dist < (point_info.find_radius or 2.0) then
+  if nearest_dist <= (point_info.find_radius or 2.0) then
     self.BEEP_INTERVAL = 250
     self:setColor(self.SF_COLORS.green, self.SF_COLORS.green)
     self:method('flashOn')
@@ -50,7 +50,13 @@ function DigiScanner:updateBars(nearest_id, nearest_dist)
     end
 
     if point_info.destroy_on_find then 
-      ScanPoint.destroy(nearest_id)
+      if not point_info.marked_for_deletion then 
+        point_info.marked_for_deletion = true
+        CreateThread(function()
+          Wait(5000)
+          ScanPoint.destroy(nearest_id)
+        end)
+      end
     end
   end 
 end 
@@ -158,26 +164,26 @@ lib.onCache('weapon', function(new_value)
   end
 end)
 
-RegisterCommand('digiscanner', function()
-  GiveWeaponToPed(cache.ped, GetHashKey('weapon_digiscanner'), 1, false, true)
-end)
+-- RegisterCommand('digiscanner', function()
+--   GiveWeaponToPed(cache.ped, GetHashKey('weapon_digiscanner'), 1, false, true)
+-- end)
 
-RegisterCommand('removeScanner', function()
-  RemoveWeaponFromPed(cache.ped, GetHashKey('weapon_digiscanner'))
-end)
+-- RegisterCommand('removeScanner', function()
+--   RemoveWeaponFromPed(cache.ped, GetHashKey('weapon_digiscanner'))
+-- end)
 
 
-ScanPoint.register('random', {
-  pos           = vector3(-361.38012695312, -153.59371948242, 38.704216003418), 
-  find_radius   = 2.0,
-  destroy_on_find = true,
-  onFind = function()
-    lib.notify({
-      title = 'Found Random Point',
-      description = 'You found a random point',
-      icon = 'map-marker',
-    })
-  end
-})
+-- ScanPoint.register('random', {
+--   pos           = vector3(-353.78170776367, -146.47076416016, 38.246978759766), 
+--   find_radius   = 2.0,
+--   destroy_on_find = true,
+--   onFind = function()
+--     lib.notify({
+--       title = 'Found Random Point',
+--       description = 'You found a random point',
+--       icon = 'map-marker',
+--     })
+--   end
+-- })
 
 
