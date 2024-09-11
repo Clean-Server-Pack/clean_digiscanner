@@ -1,6 +1,7 @@
 # FiveM Digiscanner 
 Little rework of [Pengu Digi Scanner](https://github.com/PenguScript/pengu_digiscanner) with ability to register multiple points and slightly better handling of the scanner itself. Use the example below to get yourself started. 
 
+![clean_pack](https://camo.githubusercontent.com/dadccadb5c6b6afae3e66c7dd418197103fa086d63c9b4eff2f0e283995bc475/68747470733a2f2f692e696d6775722e636f6d2f41317568576a592e706e67)
 
 ```lua
 -- Useage: 
