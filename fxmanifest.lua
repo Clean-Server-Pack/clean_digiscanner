@@ -2,10 +2,10 @@ fx_version 'cerulean'
 lua54 'yes' 
 games { 'rdr3', 'gta5' } 
 author 'DirkScripts' 
-description 'Clean | Digiscanner'
+description 'Dirk | Digiscanner'
 version '1.0.0' 
 
 client_script {
-  '@clean_lib/init.lua',
+  '@dirk_lib/init.lua',
   'src/*.lua',
 } 
